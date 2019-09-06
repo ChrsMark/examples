@@ -16,7 +16,8 @@ data:
     setup.template.settings:
       index.number_of_shards: 1
       index.codec: best_compression
-
+    cloud.id: test_1:ZXVyb3BlLXdlc3QzLmdjcC5jbG91ZC5lcy5pbyRlNTU2MjdmMDAxMWM0YzkwYTE1YWNhODZkOGRlZjBmOCRiZWQ3OWEyNjhmOTM0ZTlkYjNjYjM3ZjdjOWYyMjkyNg==
+    cloud.auth: elastic:${ELASTIC_PASSWORD}
     output.elasticsearch:
       hosts: ${ELASTICSEARCH_HOSTS}
 
@@ -53,6 +54,16 @@ spec:
             secretKeyRef:
               name: elastic-stack
               key: kibana-host-port
+        - name: CLOUD_ID
+          valueFrom:
+            secretKeyRef:
+              name: dynamic-logging
+              key: CLOUD_ID
+        - name: ELASTIC_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: dynamic-logging
+              key: ELASTIC_PASSWORD
         securityContext:
           runAsUser: 0
         volumeMounts:

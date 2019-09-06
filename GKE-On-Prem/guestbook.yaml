@@ -269,7 +269,7 @@ spec:
   selector:
     app: guestbook
     tier: frontend
-  loadBalancerIP: 10.0.10.42
+  #loadBalancerIP: 35.241.211.72
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment

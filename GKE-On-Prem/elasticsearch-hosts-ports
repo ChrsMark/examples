@@ -1,7 +1,1 @@
-Single line
-One or more URLs
-Double quotes around each URL
-Comma between each double quoted URL
-Square brackets around the list
-Remove these instructions once you edit the line below
-["http://<hostname or IP>:<port>", "http://<hostname or IP>:<port>", "http://<hostname or IP>:<port>"]
+["https://e55627f0011c4c90a15aca86d8def0f8.europe-west3.gcp.cloud.es.io:9243"]

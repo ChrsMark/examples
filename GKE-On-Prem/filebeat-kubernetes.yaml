@@ -72,7 +72,8 @@ data:
       - add_cloud_metadata:
       - add_kubernetes_metadata:
       - add_docker_metadata:
-
+    cloud.id: test_1:ZXVyb3BlLXdlc3QzLmdjcC5jbG91ZC5lcy5pbyRlNTU2MjdmMDAxMWM0YzkwYTE1YWNhODZkOGRlZjBmOCRiZWQ3OWEyNjhmOTM0ZTlkYjNjYjM3ZjdjOWYyMjkyNg==
+    cloud.auth: elastic:${ELASTIC_PASSWORD}
     output.elasticsearch:
       hosts: ${ELASTICSEARCH_HOSTS}
       ilm.enabled: true
@@ -108,6 +109,16 @@ spec:
             secretKeyRef:
               name: elastic-stack
               key: elasticsearch-hosts-ports
+        - name: CLOUD_ID
+          valueFrom:
+            secretKeyRef:
+              name: dynamic-logging
+              key: CLOUD_ID
+        - name: ELASTIC_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: dynamic-logging
+              key: ELASTIC_PASSWORD
         securityContext:
           runAsUser: 0
         volumeMounts:
